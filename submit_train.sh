@@ -40,12 +40,12 @@ DATA_DIR="/well/nichols-nvs/users/peo100/diffusion/Diffusion-Models-pytorch"
 python train_conditional_cluster.py \
     --run_name="DDPM_Conditional_Run1" \
     --dataset_path="$DATA_DIR/cifar10-32" \
-    --epochs=10 \
+    --epochs=100 \
     --batch_size=128 \
     --image_size=32 \
     --num_classes=10 \
     --lr=3e-4 \
-    --num_workers=4 \
+    --num_workers=2 \
     --save_interval=5 \
     --models_dir="$DATA_DIR/cluster_models" \
     --results_dir="$DATA_DIR/cluster_results" \

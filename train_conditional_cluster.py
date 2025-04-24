@@ -30,7 +30,8 @@ except ImportError as e:
 # Logs will go to stderr/stdout, managed by the Slurm output file
 logging.basicConfig(level=logging.INFO,
                     format="%(asctime)s - %(levelname)s: %(message)s",
-                    datefmt="%Y-%m-%d %H:%M:%S") # Use standard date format
+                    datefmt="%Y-%m-%d %H:%M:%S",
+                    stream=sys.stdout) # Add this argument
 
 
 # --- Utility Functions ---
