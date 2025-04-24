@@ -137,7 +137,7 @@ def get_data(args):
 
     # Ensure batch_size and num_workers are available in args, provide defaults if not
     batch_size = args.batch_size if hasattr(args, 'batch_size') else 16
-    num_workers = args.num_workers if hasattr(args, 'num_workers') else 4
+    num_workers = args.num_workers if hasattr(args, 'num_workers') else 2
 
     dataloader = DataLoader(
         dataset,
@@ -187,7 +187,14 @@ class Diffusion:
             if labels is not None:
                  labels = labels.to(self.device) # Ensure labels are on device
 
-            for i in tqdm(reversed(range(1, self.noise_steps)), position=0, desc="Sampling", leave=False, file=sys.stdout): # Use sys.stdout for tqdm in Slurm
+            num_steps = self.noise_steps
+            log_interval_sampling = max(1, num_steps // 5) # Log ~5 times during sampling
+
+            for i in reversed(range(1, num_steps)):
+                current_step = num_steps - i
+                if current_step % log_interval_sampling == 0 or i == 1: # Log at intervals or on last step
+                    logging.info(f"  Sampling step {current_step}/{num_steps-1}...")
+
                 t = (torch.ones(n) * i).long().to(self.device)
                 predicted_noise = model(x, t, labels) # Pass labels (can be None)
 
@@ -310,9 +317,9 @@ def train(args):
         epoch_loss = 0.0
         model.train()
 
-        # Calculate log interval (e.g., log ~10 times per epoch)
+        # Calculate log interval (e.g., log ~5 times per epoch)
         l = len(dataloader) # Make sure 'l' is defined
-        log_interval = max(1, l // 10) # Avoid division by zero if l is small
+        log_interval = max(1, l // 5) # Avoid division by zero if l is small
 
         # === Iterate directly over dataloader ===
         for i, (images, labels) in enumerate(dataloader): # Iterate directly
