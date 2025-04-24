@@ -244,7 +244,7 @@ def launch():
     args.batch_size = 14               # Batch size
     args.image_size = 64               # Image size
     args.num_classes = 10              # Number of classes for conditioning (e.g., CIFAR-10)
-    args.dataset_path = r"C:\Users\dome\datasets\cifar10\cifar10-64\train" # Path to dataset
+    args.dataset_path = r"/home/hutchings/OneDrive/Documents/academic/24-25/diffusion/Diffusion-Models-pytorch/datasets/cifar10" # Path to dataset
     args.device = "cuda"               # Device
     args.lr = 3e-4                     # Learning rate
 

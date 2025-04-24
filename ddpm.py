@@ -231,7 +231,7 @@ def launch():
     args.epochs = 500                   # Number of training epochs
     args.batch_size = 12                # Number of images per batch
     args.image_size = 64                # Target image size (resize happens in get_data)
-    args.dataset_path = r"C:\Users\dome\datasets\landscape_img_folder" # Path to the dataset
+    args.dataset_path = r"/home/hutchings/OneDrive/Documents/academic/24-25/diffusion/Diffusion-Models-pytorch/datasets/landscape" # Path to the dataset
     args.device = "cuda"                # Device to use ("cuda" or "cpu")
     args.lr = 3e-4                      # Learning rate for the optimizer
 
