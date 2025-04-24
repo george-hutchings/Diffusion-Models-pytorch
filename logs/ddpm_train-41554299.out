@@ -1,0 +1,224 @@
+------------------------------------------------------------
+SLURM JOB ID: 41554299
+Running on host: compg027.hpc.in.bmrc.ox.ac.uk
+Allocate Gpu: 0
+------------------------------------------------------------
+Python version: Python 3.11.3
+PyTorch version: 2.1.2
+Torchvision version: 0.16.2
+CUDA available: True
+2025-04-24 16:28:48 - INFO: ----- Configuration -----
+2025-04-24 16:28:48 - INFO: run_name: DDPM_Conditional_Run1
+2025-04-24 16:28:48 - INFO: dataset_path: /well/nichols-nvs/users/peo100/diffusion/Diffusion-Models-pytorch/cifar10-32
+2025-04-24 16:28:48 - INFO: models_dir: /well/nichols-nvs/users/peo100/diffusion/Diffusion-Models-pytorch/cluster_models
+2025-04-24 16:28:48 - INFO: results_dir: /well/nichols-nvs/users/peo100/diffusion/Diffusion-Models-pytorch/cluster_results
+2025-04-24 16:28:48 - INFO: runs_dir: /well/nichols-nvs/users/peo100/diffusion/Diffusion-Models-pytorch/cluster_runs
+2025-04-24 16:28:48 - INFO: save_interval: 5
+2025-04-24 16:28:48 - INFO: resume_ckpt: None
+2025-04-24 16:28:48 - INFO: image_size: 32
+2025-04-24 16:28:48 - INFO: num_classes: 10
+2025-04-24 16:28:48 - INFO: c_in: 3
+2025-04-24 16:28:48 - INFO: time_dim: 256
+2025-04-24 16:28:48 - INFO: noise_steps: 1000
+2025-04-24 16:28:48 - INFO: beta_start: 0.0001
+2025-04-24 16:28:48 - INFO: beta_end: 0.02
+2025-04-24 16:28:48 - INFO: epochs: 100
+2025-04-24 16:28:48 - INFO: batch_size: 128
+2025-04-24 16:28:48 - INFO: lr: 0.0003
+2025-04-24 16:28:48 - INFO: num_workers: 2
+2025-04-24 16:28:48 - INFO: force_cpu: False
+2025-04-24 16:28:48 - INFO: use_ema: True
+2025-04-24 16:28:48 - INFO: ema_beta: 0.995
+2025-04-24 16:28:48 - INFO: cfg_drop_prob: 0.1
+2025-04-24 16:28:48 - INFO: cfg_scale: 3.0
+2025-04-24 16:28:48 - INFO: -------------------------
+2025-04-24 16:28:48 - INFO: Created/ Ensured directories exist:
+2025-04-24 16:28:48 - INFO:   Models: /well/nichols-nvs/users/peo100/diffusion/Diffusion-Models-pytorch/cluster_models/DDPM_Conditional_Run1
+2025-04-24 16:28:48 - INFO:   Results: /well/nichols-nvs/users/peo100/diffusion/Diffusion-Models-pytorch/cluster_results/DDPM_Conditional_Run1
+2025-04-24 16:28:48 - INFO:   TB Runs: /well/nichols-nvs/users/peo100/diffusion/Diffusion-Models-pytorch/cluster_runs/DDPM_Conditional_Run1
+2025-04-24 16:28:49 - INFO: Using GPU: Tesla V100-SXM2-16GB
+2025-04-24 16:28:49 - INFO: Loading/Downloading CIFAR10 dataset to: /well/nichols-nvs/users/peo100/diffusion/Diffusion-Models-pytorch/cifar10-32
+Files already downloaded and verified
+2025-04-24 16:28:50 - INFO: CIFAR10 dataset loaded successfully with 50000 training samples.
+2025-04-24 16:28:50 - INFO: DataLoader created with batch size 128, 2 workers.
+2025-04-24 16:28:50 - INFO: Model: UNet_conditional, Num classes: 10
+2025-04-24 16:28:50 - INFO: Total Trainable Parameters: 23.34 M
+2025-04-24 16:28:50 - INFO: Dataloader length: 391 batches
+2025-04-24 16:28:50 - INFO: Using EMA with beta=0.995
+2025-04-24 16:28:50 - INFO: Starting training from epoch 1 to 100
+2025-04-24 16:28:50 - INFO: --- Starting Epoch 1/100 ---
+2025-04-24 16:29:07 - INFO: Epoch 1 Batch [78/391 (20%)]	Step Loss: 0.148955
+2025-04-24 16:29:20 - INFO: Epoch 1 Batch [156/391 (40%)]	Step Loss: 0.112328
+2025-04-24 16:29:34 - INFO: Epoch 1 Batch [234/391 (60%)]	Step Loss: 0.075821
+2025-04-24 16:29:48 - INFO: Epoch 1 Batch [312/391 (80%)]	Step Loss: 0.043513
+2025-04-24 16:30:02 - INFO: Epoch 1 Batch [390/391 (100%)]	Step Loss: 0.058615
+2025-04-24 16:30:02 - INFO: Epoch 1 Batch [391/391 (100%)]	Step Loss: 0.047144
+2025-04-24 16:30:02 - INFO: Epoch 1 Average Loss: 0.1385
+2025-04-24 16:30:02 - INFO: --- Starting Epoch 2/100 ---
+2025-04-24 16:30:16 - INFO: Epoch 2 Batch [78/391 (20%)]	Step Loss: 0.055749
+2025-04-24 16:30:30 - INFO: Epoch 2 Batch [156/391 (40%)]	Step Loss: 0.061578
+2025-04-24 16:30:44 - INFO: Epoch 2 Batch [234/391 (60%)]	Step Loss: 0.050822
+2025-04-24 16:30:58 - INFO: Epoch 2 Batch [312/391 (80%)]	Step Loss: 0.044543
+2025-04-24 16:31:11 - INFO: Epoch 2 Batch [390/391 (100%)]	Step Loss: 0.049500
+2025-04-24 16:31:12 - INFO: Epoch 2 Batch [391/391 (100%)]	Step Loss: 0.058531
+2025-04-24 16:31:12 - INFO: Epoch 2 Average Loss: 0.0532
+2025-04-24 16:31:12 - INFO: --- Starting Epoch 3/100 ---
+2025-04-24 16:31:25 - INFO: Epoch 3 Batch [78/391 (20%)]	Step Loss: 0.051479
+2025-04-24 16:31:39 - INFO: Epoch 3 Batch [156/391 (40%)]	Step Loss: 0.058488
+2025-04-24 16:31:53 - INFO: Epoch 3 Batch [234/391 (60%)]	Step Loss: 0.052735
+2025-04-24 16:32:07 - INFO: Epoch 3 Batch [312/391 (80%)]	Step Loss: 0.038088
+2025-04-24 16:32:21 - INFO: Epoch 3 Batch [390/391 (100%)]	Step Loss: 0.032618
+2025-04-24 16:32:21 - INFO: Epoch 3 Batch [391/391 (100%)]	Step Loss: 0.043912
+2025-04-24 16:32:21 - INFO: Epoch 3 Average Loss: 0.0465
+2025-04-24 16:32:21 - INFO: --- Starting Epoch 4/100 ---
+2025-04-24 16:32:35 - INFO: Epoch 4 Batch [78/391 (20%)]	Step Loss: 0.054871
+2025-04-24 16:32:49 - INFO: Epoch 4 Batch [156/391 (40%)]	Step Loss: 0.043706
+2025-04-24 16:33:02 - INFO: Epoch 4 Batch [234/391 (60%)]	Step Loss: 0.032880
+2025-04-24 16:33:16 - INFO: Epoch 4 Batch [312/391 (80%)]	Step Loss: 0.044915
+2025-04-24 16:33:30 - INFO: Epoch 4 Batch [390/391 (100%)]	Step Loss: 0.034031
+2025-04-24 16:33:30 - INFO: Epoch 4 Batch [391/391 (100%)]	Step Loss: 0.035933
+2025-04-24 16:33:30 - INFO: Epoch 4 Average Loss: 0.0425
+2025-04-24 16:33:30 - INFO: --- Starting Epoch 5/100 ---
+2025-04-24 16:33:44 - INFO: Epoch 5 Batch [78/391 (20%)]	Step Loss: 0.032428
+2025-04-24 16:33:58 - INFO: Epoch 5 Batch [156/391 (40%)]	Step Loss: 0.046541
+2025-04-24 16:34:12 - INFO: Epoch 5 Batch [234/391 (60%)]	Step Loss: 0.025167
+2025-04-24 16:34:26 - INFO: Epoch 5 Batch [312/391 (80%)]	Step Loss: 0.039147
+2025-04-24 16:34:39 - INFO: Epoch 5 Batch [390/391 (100%)]	Step Loss: 0.038418
+2025-04-24 16:34:39 - INFO: Epoch 5 Batch [391/391 (100%)]	Step Loss: 0.045220
+2025-04-24 16:34:39 - INFO: Epoch 5 Average Loss: 0.0413
+2025-04-24 16:34:39 - INFO: Epoch 5: Sampling images and saving checkpoints...
+2025-04-24 16:34:39 - INFO: Sampling from standard model...
+2025-04-24 16:34:43 - INFO:   Sampling step 200/999...
+2025-04-24 16:34:46 - INFO:   Sampling step 400/999...
+2025-04-24 16:34:49 - INFO:   Sampling step 600/999...
+2025-04-24 16:34:53 - INFO:   Sampling step 800/999...
+2025-04-24 16:34:56 - INFO:   Sampling step 999/999...
+2025-04-24 16:34:56 - INFO: Saved standard model samples to /well/nichols-nvs/users/peo100/diffusion/Diffusion-Models-pytorch/cluster_results/DDPM_Conditional_Run1/5.jpg
+2025-04-24 16:34:56 - INFO: Sampling from EMA model...
+2025-04-24 16:34:59 - INFO:   Sampling step 200/999...
+2025-04-24 16:35:03 - INFO:   Sampling step 400/999...
+2025-04-24 16:35:06 - INFO:   Sampling step 600/999...
+2025-04-24 16:35:09 - INFO:   Sampling step 800/999...
+2025-04-24 16:35:13 - INFO:   Sampling step 999/999...
+2025-04-24 16:35:13 - INFO: Saved EMA model samples to /well/nichols-nvs/users/peo100/diffusion/Diffusion-Models-pytorch/cluster_results/DDPM_Conditional_Run1/5_ema.jpg
+2025-04-24 16:35:13 - INFO: Saved checkpoint to /well/nichols-nvs/users/peo100/diffusion/Diffusion-Models-pytorch/cluster_models/DDPM_Conditional_Run1/ckpt_epoch_5.pt
+2025-04-24 16:35:13 - INFO: Saved EMA checkpoint to /well/nichols-nvs/users/peo100/diffusion/Diffusion-Models-pytorch/cluster_models/DDPM_Conditional_Run1/ema_ckpt_epoch_5.pt
+2025-04-24 16:35:13 - INFO: --- Starting Epoch 6/100 ---
+2025-04-24 16:35:27 - INFO: Epoch 6 Batch [78/391 (20%)]	Step Loss: 0.044013
+2025-04-24 16:35:41 - INFO: Epoch 6 Batch [156/391 (40%)]	Step Loss: 0.036174
+2025-04-24 16:35:55 - INFO: Epoch 6 Batch [234/391 (60%)]	Step Loss: 0.036774
+2025-04-24 16:36:08 - INFO: Epoch 6 Batch [312/391 (80%)]	Step Loss: 0.033139
+2025-04-24 16:36:22 - INFO: Epoch 6 Batch [390/391 (100%)]	Step Loss: 0.036127
+2025-04-24 16:36:22 - INFO: Epoch 6 Batch [391/391 (100%)]	Step Loss: 0.041997
+2025-04-24 16:36:22 - INFO: Epoch 6 Average Loss: 0.0396
+2025-04-24 16:36:22 - INFO: --- Starting Epoch 7/100 ---
+2025-04-24 16:36:36 - INFO: Epoch 7 Batch [78/391 (20%)]	Step Loss: 0.032235
+2025-04-24 16:36:50 - INFO: Epoch 7 Batch [156/391 (40%)]	Step Loss: 0.032477
+2025-04-24 16:37:03 - INFO: Epoch 7 Batch [234/391 (60%)]	Step Loss: 0.031664
+2025-04-24 16:37:17 - INFO: Epoch 7 Batch [312/391 (80%)]	Step Loss: 0.030360
+2025-04-24 16:37:31 - INFO: Epoch 7 Batch [390/391 (100%)]	Step Loss: 0.044479
+2025-04-24 16:37:31 - INFO: Epoch 7 Batch [391/391 (100%)]	Step Loss: 0.041908
+2025-04-24 16:37:31 - INFO: Epoch 7 Average Loss: 0.0387
+2025-04-24 16:37:31 - INFO: --- Starting Epoch 8/100 ---
+2025-04-24 16:37:45 - INFO: Epoch 8 Batch [78/391 (20%)]	Step Loss: 0.036303
+2025-04-24 16:37:59 - INFO: Epoch 8 Batch [156/391 (40%)]	Step Loss: 0.051013
+2025-04-24 16:38:12 - INFO: Epoch 8 Batch [234/391 (60%)]	Step Loss: 0.049584
+2025-04-24 16:38:26 - INFO: Epoch 8 Batch [312/391 (80%)]	Step Loss: 0.030588
+2025-04-24 16:38:40 - INFO: Epoch 8 Batch [390/391 (100%)]	Step Loss: 0.025824
+2025-04-24 16:38:40 - INFO: Epoch 8 Batch [391/391 (100%)]	Step Loss: 0.024145
+2025-04-24 16:38:40 - INFO: Epoch 8 Average Loss: 0.0381
+2025-04-24 16:38:40 - INFO: --- Starting Epoch 9/100 ---
+2025-04-24 16:38:54 - INFO: Epoch 9 Batch [78/391 (20%)]	Step Loss: 0.025024
+2025-04-24 16:39:07 - INFO: Epoch 9 Batch [156/391 (40%)]	Step Loss: 0.035422
+2025-04-24 16:39:21 - INFO: Epoch 9 Batch [234/391 (60%)]	Step Loss: 0.047098
+2025-04-24 16:39:35 - INFO: Epoch 9 Batch [312/391 (80%)]	Step Loss: 0.033732
+2025-04-24 16:39:49 - INFO: Epoch 9 Batch [390/391 (100%)]	Step Loss: 0.034125
+2025-04-24 16:39:49 - INFO: Epoch 9 Batch [391/391 (100%)]	Step Loss: 0.033080
+2025-04-24 16:39:49 - INFO: Epoch 9 Average Loss: 0.0375
+2025-04-24 16:39:49 - INFO: --- Starting Epoch 10/100 ---
+2025-04-24 16:40:03 - INFO: Epoch 10 Batch [78/391 (20%)]	Step Loss: 0.035081
+2025-04-24 16:40:16 - INFO: Epoch 10 Batch [156/391 (40%)]	Step Loss: 0.030969
+2025-04-24 16:40:30 - INFO: Epoch 10 Batch [234/391 (60%)]	Step Loss: 0.031966
+2025-04-24 16:40:44 - INFO: Epoch 10 Batch [312/391 (80%)]	Step Loss: 0.037265
+2025-04-24 16:40:57 - INFO: Epoch 10 Batch [390/391 (100%)]	Step Loss: 0.028580
+2025-04-24 16:40:58 - INFO: Epoch 10 Batch [391/391 (100%)]	Step Loss: 0.042577
+2025-04-24 16:40:58 - INFO: Epoch 10 Average Loss: 0.0363
+2025-04-24 16:40:58 - INFO: Epoch 10: Sampling images and saving checkpoints...
+2025-04-24 16:40:58 - INFO: Sampling from standard model...
+2025-04-24 16:41:01 - INFO:   Sampling step 200/999...
+2025-04-24 16:41:04 - INFO:   Sampling step 400/999...
+2025-04-24 16:41:08 - INFO:   Sampling step 600/999...
+2025-04-24 16:41:11 - INFO:   Sampling step 800/999...
+2025-04-24 16:41:14 - INFO:   Sampling step 999/999...
+2025-04-24 16:41:14 - INFO: Saved standard model samples to /well/nichols-nvs/users/peo100/diffusion/Diffusion-Models-pytorch/cluster_results/DDPM_Conditional_Run1/10.jpg
+2025-04-24 16:41:14 - INFO: Sampling from EMA model...
+2025-04-24 16:41:18 - INFO:   Sampling step 200/999...
+2025-04-24 16:41:21 - INFO:   Sampling step 400/999...
+2025-04-24 16:41:24 - INFO:   Sampling step 600/999...
+2025-04-24 16:41:28 - INFO:   Sampling step 800/999...
+2025-04-24 16:41:31 - INFO:   Sampling step 999/999...
+2025-04-24 16:41:31 - INFO: Saved EMA model samples to /well/nichols-nvs/users/peo100/diffusion/Diffusion-Models-pytorch/cluster_results/DDPM_Conditional_Run1/10_ema.jpg
+2025-04-24 16:41:31 - INFO: Saved checkpoint to /well/nichols-nvs/users/peo100/diffusion/Diffusion-Models-pytorch/cluster_models/DDPM_Conditional_Run1/ckpt_epoch_10.pt
+2025-04-24 16:41:32 - INFO: Saved EMA checkpoint to /well/nichols-nvs/users/peo100/diffusion/Diffusion-Models-pytorch/cluster_models/DDPM_Conditional_Run1/ema_ckpt_epoch_10.pt
+2025-04-24 16:41:32 - INFO: --- Starting Epoch 11/100 ---
+2025-04-24 16:41:45 - INFO: Epoch 11 Batch [78/391 (20%)]	Step Loss: 0.037453
+2025-04-24 16:41:59 - INFO: Epoch 11 Batch [156/391 (40%)]	Step Loss: 0.039441
+2025-04-24 16:42:13 - INFO: Epoch 11 Batch [234/391 (60%)]	Step Loss: 0.034090
+2025-04-24 16:42:27 - INFO: Epoch 11 Batch [312/391 (80%)]	Step Loss: 0.035345
+2025-04-24 16:42:40 - INFO: Epoch 11 Batch [390/391 (100%)]	Step Loss: 0.035469
+2025-04-24 16:42:40 - INFO: Epoch 11 Batch [391/391 (100%)]	Step Loss: 0.043463
+2025-04-24 16:42:40 - INFO: Epoch 11 Average Loss: 0.0360
+2025-04-24 16:42:40 - INFO: --- Starting Epoch 12/100 ---
+2025-04-24 16:42:54 - INFO: Epoch 12 Batch [78/391 (20%)]	Step Loss: 0.041192
+2025-04-24 16:43:08 - INFO: Epoch 12 Batch [156/391 (40%)]	Step Loss: 0.039304
+2025-04-24 16:43:22 - INFO: Epoch 12 Batch [234/391 (60%)]	Step Loss: 0.018490
+2025-04-24 16:43:35 - INFO: Epoch 12 Batch [312/391 (80%)]	Step Loss: 0.031263
+2025-04-24 16:43:49 - INFO: Epoch 12 Batch [390/391 (100%)]	Step Loss: 0.041117
+2025-04-24 16:43:49 - INFO: Epoch 12 Batch [391/391 (100%)]	Step Loss: 0.036328
+2025-04-24 16:43:49 - INFO: Epoch 12 Average Loss: 0.0351
+2025-04-24 16:43:49 - INFO: --- Starting Epoch 13/100 ---
+2025-04-24 16:44:03 - INFO: Epoch 13 Batch [78/391 (20%)]	Step Loss: 0.031254
+2025-04-24 16:44:17 - INFO: Epoch 13 Batch [156/391 (40%)]	Step Loss: 0.040420
+2025-04-24 16:44:31 - INFO: Epoch 13 Batch [234/391 (60%)]	Step Loss: 0.040231
+2025-04-24 16:44:44 - INFO: Epoch 13 Batch [312/391 (80%)]	Step Loss: 0.028278
+2025-04-24 16:44:58 - INFO: Epoch 13 Batch [390/391 (100%)]	Step Loss: 0.031552
+2025-04-24 16:44:58 - INFO: Epoch 13 Batch [391/391 (100%)]	Step Loss: 0.025644
+2025-04-24 16:44:58 - INFO: Epoch 13 Average Loss: 0.0343
+2025-04-24 16:44:58 - INFO: --- Starting Epoch 14/100 ---
+2025-04-24 16:45:12 - INFO: Epoch 14 Batch [78/391 (20%)]	Step Loss: 0.034329
+2025-04-24 16:45:26 - INFO: Epoch 14 Batch [156/391 (40%)]	Step Loss: 0.042363
+2025-04-24 16:45:39 - INFO: Epoch 14 Batch [234/391 (60%)]	Step Loss: 0.029599
+2025-04-24 16:45:53 - INFO: Epoch 14 Batch [312/391 (80%)]	Step Loss: 0.036344
+2025-04-24 16:46:07 - INFO: Epoch 14 Batch [390/391 (100%)]	Step Loss: 0.031678
+2025-04-24 16:46:07 - INFO: Epoch 14 Batch [391/391 (100%)]	Step Loss: 0.039933
+2025-04-24 16:46:07 - INFO: Epoch 14 Average Loss: 0.0343
+2025-04-24 16:46:07 - INFO: --- Starting Epoch 15/100 ---
+2025-04-24 16:46:21 - INFO: Epoch 15 Batch [78/391 (20%)]	Step Loss: 0.030697
+2025-04-24 16:46:35 - INFO: Epoch 15 Batch [156/391 (40%)]	Step Loss: 0.039871
+2025-04-24 16:46:48 - INFO: Epoch 15 Batch [234/391 (60%)]	Step Loss: 0.031184
+2025-04-24 16:47:02 - INFO: Epoch 15 Batch [312/391 (80%)]	Step Loss: 0.045280
+2025-04-24 16:47:16 - INFO: Epoch 15 Batch [390/391 (100%)]	Step Loss: 0.033596
+2025-04-24 16:47:16 - INFO: Epoch 15 Batch [391/391 (100%)]	Step Loss: 0.026038
+2025-04-24 16:47:16 - INFO: Epoch 15 Average Loss: 0.0344
+2025-04-24 16:47:16 - INFO: Epoch 15: Sampling images and saving checkpoints...
+2025-04-24 16:47:16 - INFO: Sampling from standard model...
+2025-04-24 16:47:19 - INFO:   Sampling step 200/999...
+2025-04-24 16:47:23 - INFO:   Sampling step 400/999...
+2025-04-24 16:47:26 - INFO:   Sampling step 600/999...
+2025-04-24 16:47:29 - INFO:   Sampling step 800/999...
+2025-04-24 16:47:33 - INFO:   Sampling step 999/999...
+2025-04-24 16:47:33 - INFO: Saved standard model samples to /well/nichols-nvs/users/peo100/diffusion/Diffusion-Models-pytorch/cluster_results/DDPM_Conditional_Run1/15.jpg
+2025-04-24 16:47:33 - INFO: Sampling from EMA model...
+2025-04-24 16:47:36 - INFO:   Sampling step 200/999...
+2025-04-24 16:47:39 - INFO:   Sampling step 400/999...
+2025-04-24 16:47:43 - INFO:   Sampling step 600/999...
+2025-04-24 16:47:46 - INFO:   Sampling step 800/999...
+2025-04-24 16:47:49 - INFO:   Sampling step 999/999...
+2025-04-24 16:47:49 - INFO: Saved EMA model samples to /well/nichols-nvs/users/peo100/diffusion/Diffusion-Models-pytorch/cluster_results/DDPM_Conditional_Run1/15_ema.jpg
+2025-04-24 16:47:50 - INFO: Saved checkpoint to /well/nichols-nvs/users/peo100/diffusion/Diffusion-Models-pytorch/cluster_models/DDPM_Conditional_Run1/ckpt_epoch_15.pt
+2025-04-24 16:47:50 - INFO: Saved EMA checkpoint to /well/nichols-nvs/users/peo100/diffusion/Diffusion-Models-pytorch/cluster_models/DDPM_Conditional_Run1/ema_ckpt_epoch_15.pt
+2025-04-24 16:47:50 - INFO: --- Starting Epoch 16/100 ---
+2025-04-24 16:48:04 - INFO: Epoch 16 Batch [78/391 (20%)]	Step Loss: 0.029969
+2025-04-24 16:48:17 - INFO: Epoch 16 Batch [156/391 (40%)]	Step Loss: 0.028902
+2025-04-24 16:48:31 - INFO: Epoch 16 Batch [234/391 (60%)]	Step Loss: 0.035177
+2025-04-24 16:48:45 - INFO: Epoch 16 Batch [312/391 (80%)]	Step Loss: 0.051149
