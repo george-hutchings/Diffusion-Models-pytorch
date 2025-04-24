@@ -296,26 +296,32 @@ def train(args):
     for epoch in range(start_epoch, args.epochs):
         epoch_num = epoch + 1
         logging.info(f"--- Starting Epoch {epoch_num}/{args.epochs} ---")
-        
-        pbar = tqdm(dataloader,
-                desc=f"Epoch {epoch_num}/{args.epochs}",
-                file=sys.stdout,        # Keep directing to stdout (or try sys.stderr)
-                ncols=100,              # Set a fixed width (e.g., 100 characters)
-                ascii=True,             # Use ASCII characters only for the bar
-                mininterval=59.0,        # Update less frequently (e.g., every 59 seconds)
-                dynamic_ncols=False,    # Don't try to detect terminal width
-                leave=True              # Ensure the final iteration's stats are printed clearly
-                )
+        # === REMOVE OR COMMENT OUT the tqdm wrapper ===
+        # pbar = tqdm(
+        #     dataloader,
+        #     desc=f"Epoch {epoch_num}/{args.epochs}",
+        #     file=sys.stdout,
+        #     ncols=100,
+        #     ascii=True,
+        #     mininterval=5.0,
+        #     dynamic_ncols=False,
+        #     leave=True
+        # )
         epoch_loss = 0.0
-        model.train() # Ensure model is in training mode
+        model.train()
 
-        for i, (images, labels) in enumerate(pbar):
+        # Calculate log interval (e.g., log ~10 times per epoch)
+        l = len(dataloader) # Make sure 'l' is defined
+        log_interval = max(1, l // 10) # Avoid division by zero if l is small
+
+        # === Iterate directly over dataloader ===
+        for i, (images, labels) in enumerate(dataloader): # Iterate directly
+            # ... (rest of your loop code: moving data, sampling t, noising, CFG logic) ...
             images = images.to(device)
             labels = labels.to(device)
             t = diffusion.sample_timesteps(images.shape[0]).to(device)
             x_t, noise = diffusion.noise_images(images, t)
 
-            # Classifier-Free Guidance Training (randomly drop labels)
             if np.random.random() < args.cfg_drop_prob:
                 labels_for_model = None
             else:
@@ -333,9 +339,15 @@ def train(args):
 
             current_loss = loss.item()
             epoch_loss += current_loss
-            pbar.set_postfix(MSE=current_loss)
-            logger.add_scalar("Loss/Step", current_loss, global_step=epoch * l + i)
+            # === REMOVE OR COMMENT OUT pbar.set_postfix ===
+            # pbar.set_postfix(MSE=current_loss)
+            logger.add_scalar("Loss/Step", current_loss, global_step=epoch * l + i) # Keep TensorBoard logging
 
+            # === ADD Periodic Logging ===
+            if (i + 1) % log_interval == 0 or (i + 1) == l: # Log at intervals or on last batch
+                logging.info(f"Epoch {epoch_num} Batch [{i+1}/{l} ({100.*(i+1)/l:.0f}%)]\tStep Loss: {current_loss:.6f}")
+
+        # Keep Epoch Summary Logging
         avg_epoch_loss = epoch_loss / l
         logger.add_scalar("Loss/Epoch", avg_epoch_loss, global_step=epoch_num)
         logging.info(f"Epoch {epoch_num} Average Loss: {avg_epoch_loss:.4f}")
