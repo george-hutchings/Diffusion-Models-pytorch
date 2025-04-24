@@ -21,9 +21,9 @@ echo "------------------------------------------------------------"
 
 # Load necessary modules (adjust based on your cluster's environment management)
 module purge
-> module load PyTorch-bundle/2.1.2-foss-2023a-CUDA-12.1.1 && \
-> module load SciPy-bundle/2023.07-gfbf-2023a && \
-> module load matplotlib/3.7.2-gfbf-2023a && \
+module load PyTorch-bundle/2.1.2-foss-2023a-CUDA-12.1.1 && \
+module load SciPy-bundle/2023.07-gfbf-2023a && \
+module load matplotlib/3.7.2-gfbf-2023a && \
 
 # Activate your Python environment (replace 'my_env' with your environment name)
 echo "Python version: $(python --version)"
@@ -42,14 +42,14 @@ python train_conditional_cluster.py \
     --dataset_path="$DATA_DIR/cifar10-32" \
     --epochs=1 \
     --batch_size=32 \
-    --image_size=64 \
+    --image_size=32 \
     --num_classes=10 \
     --lr=3e-4 \
     --num_workers=4 \
     --save_interval=5 \
-    --models_dir="DATA_DIR/cluster_models" \
-    --results_dir="DATA_DIR/cluster_results" \
-    --runs_dir="DATA_DIR/cluster_runs" \
+    --models_dir="$DATA_DIR/cluster_models" \
+    --results_dir="$DATA_DIR/cluster_results" \
+    --runs_dir="$DATA_DIR/cluster_runs" \
     --use_ema \
     # --resume_ckpt="./cluster_models/DDPM_Conditional_Run1/ckpt_epoch_50.pt" # Example resume
 

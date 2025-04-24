@@ -296,7 +296,16 @@ def train(args):
     for epoch in range(start_epoch, args.epochs):
         epoch_num = epoch + 1
         logging.info(f"--- Starting Epoch {epoch_num}/{args.epochs} ---")
-        pbar = tqdm(dataloader, desc=f"Epoch {epoch_num}/{args.epochs}", file=sys.stdout, dynamic_ncols=True)
+        
+        pbar = tqdm(dataloader,
+                desc=f"Epoch {epoch_num}/{args.epochs}",
+                file=sys.stdout,        # Keep directing to stdout (or try sys.stderr)
+                ncols=100,              # Set a fixed width (e.g., 100 characters)
+                ascii=True,             # Use ASCII characters only for the bar
+                mininterval=59.0,        # Update less frequently (e.g., every 59 seconds)
+                dynamic_ncols=False,    # Don't try to detect terminal width
+                leave=True              # Ensure the final iteration's stats are printed clearly
+                )
         epoch_loss = 0.0
         model.train() # Ensure model is in training mode
 
